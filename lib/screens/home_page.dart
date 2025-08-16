@@ -83,7 +83,6 @@ class _HomePageState extends State<HomePage> {
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
-              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 final items = [
                   (AppAssets.sendIcon, AppStrings.sendMoney),
