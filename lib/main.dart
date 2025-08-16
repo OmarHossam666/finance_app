@@ -1,8 +1,8 @@
-import 'package:finance_app/themes/dark_theme.dart';
-import 'package:finance_app/themes/light_theme.dart';
+import 'package:finance_app/core/themes/dark_theme.dart';
+import 'package:finance_app/core/themes/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:finance_app/routes/router_config_generation.dart';
+import 'package:finance_app/core/routes/router_config_generation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
