@@ -48,69 +48,73 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: const CustomBackButton()),
-      body: Padding(
-        padding: EdgeInsets.all(16.r),
-        child: Form(
-          key: formKey,
-          child: Column(
-            children: [
-              Text(AppStrings.helloRegister, style: AppStyles.titleLarge),
-              SizedBox(height: 32.h),
-              CustomTextField(
-                hintText: AppStrings.username,
-                controller: usernameController,
-                validator: AppValidators.validateName,
-              ),
-              SizedBox(height: 12.h),
-              CustomTextField(
-                hintText: AppStrings.email,
-                controller: emailController,
-                validator: AppValidators.validateEmail,
-              ),
-              SizedBox(height: 12.h),
-              CustomTextField(
-                hintText: AppStrings.password,
-                controller: passwordController,
-                validator: AppValidators.validatePassword,
-                isPassword: true,
-              ),
-              SizedBox(height: 12.h),
-              CustomTextField(
-                hintText: AppStrings.confirmPassword,
-                controller: confirmPasswordController,
-                validator: AppValidators.validatePassword,
-                isPassword: true,
-              ),
-              SizedBox(height: 30.h),
-              PrimaryButton(
-                textButton: AppStrings.register,
-                onpressed: () {
-                  if (formKey.currentState!.validate()) {
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(22.r),
+          child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Align(alignment: Alignment.centerLeft,child: CustomBackButton()),
+                SizedBox(height: 32.h),
+                Text(AppStrings.helloRegister, style: AppStyles.titleLarge),
+                SizedBox(height: 32.h),
+                CustomTextField(
+                  hintText: AppStrings.username,
+                  controller: usernameController,
+                  validator: AppValidators.validateName,
+                ),
+                SizedBox(height: 12.h),
+                CustomTextField(
+                  hintText: AppStrings.email,
+                  controller: emailController,
+                  validator: AppValidators.validateEmail,
+                ),
+                SizedBox(height: 12.h),
+                CustomTextField(
+                  hintText: AppStrings.password,
+                  controller: passwordController,
+                  validator: AppValidators.validatePassword,
+                  isPassword: true,
+                ),
+                SizedBox(height: 12.h),
+                CustomTextField(
+                  hintText: AppStrings.confirmPassword,
+                  controller: confirmPasswordController,
+                  validator: AppValidators.validatePassword,
+                  isPassword: true,
+                ),
+                SizedBox(height: 30.h),
+                PrimaryButton(
+                  textButton: AppStrings.register,
+                  onpressed: () {
+                    if (formKey.currentState!.validate()) {
+                      context.pushReplacement(AppRoutes.loginScreen);
+                    }
+                  },
+                ),
+                SizedBox(height: 35.h),
+                const CustomDivider(text: AppStrings.orRegisterWith),
+                SizedBox(height: 22.h),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomSocialButton(imagePath: AppAssets.facebookIcon),
+                    CustomSocialButton(imagePath: AppAssets.googleIcon),
+                    CustomSocialButton(imagePath: AppAssets.appleIcon),
+                  ],
+                ),
+                const Spacer(),
+                CustomLinkText(
+                  text: AppStrings.alreadyHaveAnAccount,
+                  linkText: AppStrings.loginNow,
+                  onTap: () {
                     context.pushReplacement(AppRoutes.loginScreen);
-                  }
-                },
-              ),
-              SizedBox(height: 35.h),
-              const CustomDivider(text: AppStrings.orRegisterWith),
-              SizedBox(height: 22.h),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomSocialButton(imagePath: AppAssets.facebookIcon),
-                  CustomSocialButton(imagePath: AppAssets.googleIcon),
-                  CustomSocialButton(imagePath: AppAssets.appleIcon),
-                ],
-              ),
-              const Spacer(),
-              CustomLinkText(
-                text: AppStrings.alreadyHaveAnAccount,
-                linkText: AppStrings.loginNow,
-                onTap: () {
-                  context.pushReplacement(AppRoutes.loginScreen);
-                },
-              ),
-            ],
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

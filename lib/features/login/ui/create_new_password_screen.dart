@@ -14,12 +14,13 @@ class CreateNewPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: const CustomBackButton()),
       body: Padding(
         padding: EdgeInsets.all(22.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const CustomBackButton(),
+            SizedBox(height: 32.h),
             Text(AppStrings.createNewPassword, style: AppStyles.titleLarge),
             SizedBox(height: 10.h),
             Text(AppStrings.newPasswordSubtitle, style: AppStyles.bodyLarge),

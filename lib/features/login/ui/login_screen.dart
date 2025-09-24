@@ -43,7 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: const CustomBackButton()),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(22.r),
@@ -52,6 +51,8 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const CustomBackButton(),
+                SizedBox(height: 32.h),
                 Text(AppStrings.welcomeBack, style: AppStyles.titleLarge),
                 Text(AppStrings.again, style: AppStyles.titleLarge),
                 SizedBox(height: 32.h),

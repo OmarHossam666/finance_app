@@ -36,7 +36,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: const CustomBackButton()),
       body: Padding(
         padding: EdgeInsets.all(22.r),
         child: Form(
@@ -44,6 +43,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const CustomBackButton(),
+              SizedBox(height: 32.h),
               Text(AppStrings.forgotPasswordTitle, style: AppStyles.titleLarge),
               SizedBox(height: 10.h),
               Text(

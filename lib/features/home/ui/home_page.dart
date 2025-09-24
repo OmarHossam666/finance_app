@@ -22,82 +22,84 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(22.r),
-      child: Column(
-        children: [
-          const CustomHomeAppBar(),
-          SizedBox(height: 24.h),
-          CarouselSlider(
-            items: const [
-              CustomHomeCard(
-                cardType: AppStrings.xCard,
-                cardMoney: AppStrings.lightCardMoney,
-                cardCode: AppStrings.cardCode1,
-                cardColor: AppColors.cardBlueLight,
-                cardWidth: 207,
-                cardHeight: 263,
-              ),
-              CustomHomeCard(
-                cardType: AppStrings.mCard,
-                cardMoney: AppStrings.darkCardMoney,
-                cardCode: AppStrings.cardCode2,
-                cardColor: AppColors.cardBlueDark,
-                cardWidth: 207,
-                cardHeight: 263,
-              ),
-            ],
-            options: CarouselOptions(
-              autoPlay: true,
-              height: 263.h,
-              viewportFraction: 0.70,
-              enlargeCenterPage: true,
-              enlargeFactor: 0.3,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  currentIndex = index;
-                });
-              },
-            ),
-          ),
-          SizedBox(height: 8.h),
-          DotsIndicator(
-            position: currentIndex.toDouble(),
-            dotsCount: 2,
-            animate: true,
-            decorator: DotsDecorator(
-              spacing: EdgeInsets.symmetric(horizontal: 4.r),
-              color: Colors.grey,
-              activeColor: AppColors.primary,
-              size: Size.square(8.r),
-              activeSize: Size(16.r, 8.r),
-              activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6.r),
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.all(16.r),
+        child: Column(
+          children: [
+            const CustomHomeAppBar(),
+            SizedBox(height: 24.h),
+            CarouselSlider(
+              items: const [
+                CustomHomeCard(
+                  cardType: AppStrings.xCard,
+                  cardMoney: AppStrings.lightCardMoney,
+                  cardCode: AppStrings.cardCode1,
+                  cardColor: AppColors.cardBlueLight,
+                  cardWidth: 207,
+                  cardHeight: 263,
+                ),
+                CustomHomeCard(
+                  cardType: AppStrings.mCard,
+                  cardMoney: AppStrings.darkCardMoney,
+                  cardCode: AppStrings.cardCode2,
+                  cardColor: AppColors.cardBlueDark,
+                  cardWidth: 207,
+                  cardHeight: 263,
+                ),
+              ],
+              options: CarouselOptions(
+                autoPlay: true,
+                height: 263.h,
+                viewportFraction: 0.70,
+                enlargeCenterPage: true,
+                enlargeFactor: 0.3,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
               ),
             ),
-          ),
-          SizedBox(height: 24.h),
-          Expanded(
-            child: GridView.builder(
-              itemCount: 4,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+            SizedBox(height: 8.h),
+            DotsIndicator(
+              position: currentIndex.toDouble(),
+              dotsCount: 2,
+              animate: true,
+              decorator: DotsDecorator(
+                spacing: EdgeInsets.symmetric(horizontal: 4.r),
+                color: Colors.grey,
+                activeColor: AppColors.primary,
+                size: Size.square(8.r),
+                activeSize: Size(16.r, 8.r),
+                activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6.r),
+                ),
               ),
-              itemBuilder: (context, index) {
-                final items = [
-                  (AppAssets.sendIcon, AppStrings.sendMoney),
-                  (AppAssets.primaryWalletIcon, AppStrings.payTheBill),
-                  (AppAssets.sendIcon, AppStrings.request),
-                  (AppAssets.usersIcon, AppStrings.contact),
-                ];
-                return CustomHomeItem(
-                  iconPath: items[index].$1,
-                  title: items[index].$2,
-                );
-              },
             ),
-          ),
-        ],
+            SizedBox(height: 24.h),
+            Expanded(
+              child: GridView.builder(
+                itemCount: 4,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                ),
+                itemBuilder: (context, index) {
+                  final items = [
+                    (AppAssets.sendIcon, AppStrings.sendMoney),
+                    (AppAssets.primaryWalletIcon, AppStrings.payTheBill),
+                    (AppAssets.sendIcon, AppStrings.request),
+                    (AppAssets.usersIcon, AppStrings.contact),
+                  ];
+                  return CustomHomeItem(
+                    iconPath: items[index].$1,
+                    title: items[index].$2,
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:finance_app/core/constants/app_strings.dart';
 import 'package:finance_app/core/themes/dark_theme.dart';
 import 'package:finance_app/core/themes/light_theme.dart';
 import 'package:flutter/material.dart';
@@ -6,11 +7,6 @@ import 'package:finance_app/core/routes/router_config_generation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Global error handling
-  FlutterError.onError = (FlutterErrorDetails details) {
-    FlutterError.presentError(details);
-  };
 
   runApp(const FinanceApp());
 }
@@ -22,10 +18,12 @@ class FinanceApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp.router(
           routerConfig: RouterConfigGeneration.goRouter,
-          title: 'Finance App',
+          title: AppStrings.appName,
           debugShowCheckedModeBanner: false,
           theme: LightTheme.lightTheme,
           darkTheme: DarkTheme.darkTheme,
