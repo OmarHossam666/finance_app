@@ -8,6 +8,9 @@ import 'package:finance_app/core/routes/router_config_generation.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Ensure fonts are loaded before app starts
+  await Future.delayed(const Duration(milliseconds: 100));
+
   runApp(const FinanceApp());
 }
 

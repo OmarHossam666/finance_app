@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_colors.dart';
+import 'app_fonts.dart';
 
 class AppStyles {
   AppStyles._();
@@ -13,6 +14,7 @@ class AppStyles {
     fontSize: 30.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.primary,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for main screen titles and prominent headers.
@@ -21,6 +23,7 @@ class AppStyles {
     fontSize: 20.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for user names or important values in profiles.
@@ -29,6 +32,7 @@ class AppStyles {
     fontSize: 20.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.textPrimary,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for subtitles and descriptive text.
@@ -37,6 +41,7 @@ class AppStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.w500, // Medium
     color: AppColors.textSecondary,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for standard body text and input field values.
@@ -45,6 +50,7 @@ class AppStyles {
     fontSize: 18.sp,
     fontWeight: FontWeight.w600, // SemiBold
     color: AppColors.textPrimary,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for smaller body text, like labels or less important info.
@@ -53,6 +59,7 @@ class AppStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w500, // Medium
     color: AppColors.textSecondary,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for text inside primary buttons.
@@ -61,6 +68,7 @@ class AppStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.textWhite,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for text links.
@@ -69,6 +77,7 @@ class AppStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w600, // SemiBold
     color: AppColors.linkTextColor,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for input field hint text.
@@ -77,6 +86,7 @@ class AppStyles {
     fontSize: 15.sp,
     fontWeight: FontWeight.w500, // Medium
     color: AppColors.textHint,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for the large balance text on cards.
@@ -85,6 +95,7 @@ class AppStyles {
     fontSize: 24.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.textWhite,
+    fontFamily: AppFonts.urbanist,
   );
 
   /// Style for general text on cards.
@@ -93,5 +104,6 @@ class AppStyles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w700, // SemiBold
     color: AppColors.cardTextColor,
+    fontFamily: AppFonts.urbanist,
   );
 }

@@ -20,26 +20,38 @@ class WelcomeScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 16.h,
           children: [
             SvgPicture.asset(
               AppAssets.welcomeScreenImage,
               width: 375.w,
               height: 570.h,
               fit: BoxFit.contain,
+              placeholderBuilder: (context) => Container(
+                width: 375.w,
+                height: 570.h,
+                color: AppColors.backgroundLightGray,
+                child: Icon(
+                  Icons.image,
+                  size: 100.w,
+                  color: AppColors.textSecondary,
+                ),
+              ),
             ),
+            SizedBox(height: 16.h),
             PrimaryButton(
               textButton: AppStrings.login,
               onpressed: () {
                 context.push(AppRoutes.loginScreen);
               },
             ),
+            SizedBox(height: 16.h),
             PrimaryOutlinedButton(
               textButton: AppStrings.register,
               onPressed: () {
                 context.push(AppRoutes.registerScreen);
               },
             ),
+            SizedBox(height: 16.h),
             Text.rich(
               TextSpan(
                 text: AppStrings.continueAsAGuest,
